@@ -95,14 +95,14 @@ void Error_Handler(void);
 #define IN1_GPIO_Port GPIOA
 #define IN2_Pin GPIO_PIN_11
 #define IN2_GPIO_Port GPIOA
-#define LeftForwardIROUT_Pin GPIO_PIN_12
-#define LeftForwardIROUT_GPIO_Port GPIOA
+#define IN3_Pin GPIO_PIN_12
+#define IN3_GPIO_Port GPIOA
 #define IN4_Pin GPIO_PIN_3
 #define IN4_GPIO_Port GPIOB
 #define STBY_Pin GPIO_PIN_4
 #define STBY_GPIO_Port GPIOB
-#define leftDiagonalOUT_Pin GPIO_PIN_5
-#define leftDiagonalOUT_GPIO_Port GPIOB
+#define leftForwardIR_Pin GPIO_PIN_5
+#define leftForwardIR_GPIO_Port GPIOB
 #define LeftDiagonalIROUT_Pin GPIO_PIN_6
 #define LeftDiagonalIROUT_GPIO_Port GPIOB
 
