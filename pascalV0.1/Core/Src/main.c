@@ -528,10 +528,10 @@ static void MX_TIM6_Init(void)
 
   /* USER CODE END TIM6_Init 1 */
   htim6.Instance = TIM6;
-  htim6.Init.Prescaler = 169;
+  htim6.Init.Prescaler = 170-1;
   htim6.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim6.Init.Period = 65535;
-  htim6.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  htim6.Init.Period = 999;
+  htim6.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
   if (HAL_TIM_Base_Init(&htim6) != HAL_OK)
   {
     Error_Handler();
@@ -615,10 +615,10 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, LeftIROUT_Pin|rightDiagonal_OUT_Pin|RightForwardlOUT_Pin|RightIROUT_Pin
-                          |IN4_Pin|STBY_Pin|leftDiagonalOUT_Pin|LeftDiagonalIROUT_Pin, GPIO_PIN_RESET);
+                          |IN4_Pin|STBY_Pin|leftForwardIR_Pin|LeftDiagonalIROUT_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, IN1_Pin|IN2_Pin|LeftForwardIROUT_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, IN1_Pin|IN2_Pin|IN3_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : leftDiagonal_IR_Pin rightForward_IR_Pin */
   GPIO_InitStruct.Pin = leftDiagonal_IR_Pin|rightForward_IR_Pin;
@@ -627,16 +627,16 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pins : LeftIROUT_Pin rightDiagonal_OUT_Pin RightForwardlOUT_Pin RightIROUT_Pin
-                           IN4_Pin STBY_Pin leftDiagonalOUT_Pin LeftDiagonalIROUT_Pin */
+                           IN4_Pin STBY_Pin leftForwardIR_Pin LeftDiagonalIROUT_Pin */
   GPIO_InitStruct.Pin = LeftIROUT_Pin|rightDiagonal_OUT_Pin|RightForwardlOUT_Pin|RightIROUT_Pin
-                          |IN4_Pin|STBY_Pin|leftDiagonalOUT_Pin|LeftDiagonalIROUT_Pin;
+                          |IN4_Pin|STBY_Pin|leftForwardIR_Pin|LeftDiagonalIROUT_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : IN1_Pin IN2_Pin LeftForwardIROUT_Pin */
-  GPIO_InitStruct.Pin = IN1_Pin|IN2_Pin|LeftForwardIROUT_Pin;
+  /*Configure GPIO pins : IN1_Pin IN2_Pin IN3_Pin */
+  GPIO_InitStruct.Pin = IN1_Pin|IN2_Pin|IN3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
